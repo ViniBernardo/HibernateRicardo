@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Trabalho</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:outputText value="Informe o nome : " />
+            <h:inputText id="nome" value="#{controllerCliente.cliente.nome}" /><br/><br/>
+            <h:outputText value="Informe o email : " />
+            <h:inputText id="email" value="#{controllerCliente.cliente.email}" /><br/><br/>
+            <h:outputText value="Informe o telefone : " />
+            <h:inputText id="telefone" value="#{controllerCliente.cliente.telefone}" /><br/><br/>
+            <h:commandButton value="Salvar" action="#{controllerCliente.salvar()}" />
+        </h:form>
+        <h:form>
+            <h:dataTable var="item" value="#{controllerCliente.lista}">
+                <h:column>
+                    <f:facet name="header">Nome</f:facet>
+                    #{item.nome}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Email</f:facet>
+                    #{item.email}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Telefone</f:facet>
+                    #{item.telefone}
+                </h:column>
+            </h:dataTable>
+        </h:form>
+    </h:body>
+</html>
+
